@@ -1,0 +1,29 @@
+<view class="container">
+  <view class="header">
+    <text class="title">货币转换器</text>
+    <text class="subtitle">实时汇率转换</text>
+  </view>
+
+  <currency-selector
+    currencies="{{currencies}}"
+    selected="{{fromCurrency}}"
+    label="选择源货币"
+    bind:change="onFromCurrencyChange"
+  />
+
+  <amount-input
+    symbol="{{currencies[fromCurrency].symbol}}"
+    bind:input="onAmountInput"
+  />
+
+  <result-list results="{{results}}" />
+
+  <view class="footer">
+    <text>最后更新：{{lastUpdate}}</text>
+    <button class="refresh-btn" bindtap="onRefresh">
+      刷新汇率
+    </button>
+  </view>
+
+  <loading wx:if="{{loading}}" />
+</view> 

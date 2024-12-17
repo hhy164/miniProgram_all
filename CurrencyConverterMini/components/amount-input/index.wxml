@@ -1,0 +1,9 @@
+<view class="input-container">
+  <input 
+    type="digit"
+    class="amount-input"
+    placeholder="请输入金额"
+    bindinput="onInput"
+  />
+  <text class="symbol">{{symbol}}</text>
+</view> 
