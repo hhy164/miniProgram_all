@@ -4,18 +4,18 @@ const app = getApp()
 Page({
   data: {
     currencies: [
-      { code: 'CNY', label: '🇨🇳 人民币 (CNY)' },
-      { code: 'USD', label: '🇺🇸 美元 (USD)' },
-      { code: 'EUR', label: '🇪🇺 欧元 (EUR)' },
-      { code: 'GBP', label: '🇬🇧 英镑 (GBP)' },
-      { code: 'JPY', label: '🇯🇵 日元 (JPY)' },
-      { code: 'HKD', label: '🇭🇰 港币 (HKD)' },
-      { code: 'KRW', label: '🇰🇷 韩元 (KRW)' },
-      { code: 'AUD', label: '🇦🇺 澳元 (AUD)' },
-      { code: 'CAD', label: '🇨🇦 加元 (CAD)' },
-      { code: 'SGD', label: '🇸🇬 新加坡元 (SGD)' },
-      { code: 'MYR', label: '🇲🇾 马来西亚林吉特 (MYR)' },
-      { code: 'THB', label: '🇹🇭 泰铢 (THB)' }
+      { code: 'CNY', label: '🇨🇳 人民币 (CNY)', name: '人民币' },
+      { code: 'USD', label: '🇺🇸 美元 (USD)', name: '美元' },
+      { code: 'EUR', label: '🇪🇺 欧元 (EUR)', name: '欧元' },
+      { code: 'GBP', label: '🇬🇧 英镑 (GBP)', name: '英镑' },
+      { code: 'JPY', label: '🇯🇵 日元 (JPY)', name: '日元' },
+      { code: 'HKD', label: '🇭🇰 港币 (HKD)', name: '港币' },
+      { code: 'KRW', label: '🇰🇷 韩元 (KRW)', name: '韩元' },
+      { code: 'AUD', label: '🇦🇺 澳元 (AUD)', name: '澳元' },
+      { code: 'CAD', label: '🇨🇦 加元 (CAD)', name: '加元' },
+      { code: 'SGD', label: '🇸🇬 新加坡元 (SGD)', name: '新加坡元' },
+      { code: 'MYR', label: '🇲🇾 马来西亚林吉特 (MYR)', name: '马来西亚林吉特' },
+      { code: 'THB', label: '🇹🇭 泰铢 (THB)', name: '泰铢' }
     ],
     fromCurrencyIndex: 0,
     toCurrencyIndex: 1,
@@ -93,8 +93,12 @@ Page({
 
     const newPopularConversions = popularPairs.map(pair => {
       const rate = this.data.exchangeRates[pair.to] / this.data.exchangeRates[pair.from]
+      const fromCurrency = this.data.currencies.find(c => c.code === pair.from)
+      const toCurrency = this.data.currencies.find(c => c.code === pair.to)
       return {
         ...pair,
+        fromName: fromCurrency.name,
+        toName: toCurrency.name,
         convertedAmount: (pair.amount * rate).toFixed(2)
       }
     })

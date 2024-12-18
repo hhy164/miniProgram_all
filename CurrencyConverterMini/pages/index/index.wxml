@@ -55,9 +55,9 @@
     <text class="section-title">常用汇率</text>
     <view class="currency-grid">
       <view class="currency-item" wx:for="{{popularConversions}}" wx:key="index">
-        <view class="currency-amount">{{item.amount}} {{item.from}}</view>
+        <view class="currency-amount">{{item.amount}} {{item.fromName}}</view>
         <text class="iconfont icon-arrow-right"></text>
-        <view class="currency-converted">{{item.convertedAmount}} {{item.to}}</view>
+        <view class="currency-converted">{{item.convertedAmount}} {{item.toName}}</view>
       </view>
     </view>
   </view>
