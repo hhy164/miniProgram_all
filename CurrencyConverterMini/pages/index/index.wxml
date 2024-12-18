@@ -1,22 +1,26 @@
 <view class="page-container">
-  <!-- Header Section -->
-  <view class="header">
-    <text class="title">汇率转换</text>
-    <text class="subtitle">实时汇率 · 精准换算</text>
+  <!-- Custom Navigation Bar -->
+  <view class="custom-nav">
+    <view class="nav-content">
+      <text class="nav-title">汇率转换</text>
+    </view>
   </view>
 
   <!-- Main Conversion Section -->
   <view class="converter-card">
+    <!-- Header Section -->
+    <view class="header">
+      <text class="subtitle">实时汇率 · 精准换算</text>
+    </view>
+
     <!-- From Currency Section -->
     <view class="currency-section">
       <view class="currency-header">
         <text>原始货币</text>
-        <picker bindchange="handleFromCurrencyChange" value="{{fromCurrencyIndex}}" range="{{currencies}}" range-key="label">
-          <view class="currency-picker">
-            <text>{{currencies[fromCurrencyIndex].label}}</text>
-            <text class="iconfont icon-arrow-down"></text>
-          </view>
-        </picker>
+        <view class="currency-picker" bindtap="navigateToCurrencySelect" data-type="from">
+          <text>{{currencies[fromCurrencyIndex].label}}</text>
+          <text class="iconfont icon-arrow-right"></text>
+        </view>
       </view>
       <view class="input-section">
         <input type="digit" 
@@ -36,12 +40,10 @@
     <view class="currency-section">
       <view class="currency-header">
         <text>目标货币</text>
-        <picker bindchange="handleToCurrencyChange" value="{{toCurrencyIndex}}" range="{{currencies}}" range-key="label">
-          <view class="currency-picker">
-            <text>{{currencies[toCurrencyIndex].label}}</text>
-            <text class="iconfont icon-arrow-down"></text>
-          </view>
-        </picker>
+        <view class="currency-picker" bindtap="navigateToCurrencySelect" data-type="to">
+          <text>{{currencies[toCurrencyIndex].label}}</text>
+          <text class="iconfont icon-arrow-right"></text>
+        </view>
       </view>
       <view class="result-section">
         <text class="converted-amount">{{convertedAmount}}</text>

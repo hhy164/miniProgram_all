@@ -31,6 +31,15 @@ Page({
     this.fetchExchangeRates()
   },
 
+  // 导航到货币选择页面
+  navigateToCurrencySelect(e) {
+    const type = e.currentTarget.dataset.type
+    const currentIndex = type === 'from' ? this.data.fromCurrencyIndex : this.data.toCurrencyIndex
+    wx.navigateTo({
+      url: `/pages/currency-select/index?type=${type}&currentIndex=${currentIndex}`
+    })
+  },
+
   // 获取汇率数据
   async fetchExchangeRates() {
     try {
@@ -112,22 +121,6 @@ Page({
   handleAmountInput(e) {
     this.setData({
       amount: e.detail.value
-    })
-    this.updateConversion()
-  },
-
-  // 处理源货币变化
-  handleFromCurrencyChange(e) {
-    this.setData({
-      fromCurrencyIndex: e.detail.value
-    })
-    this.updateConversion()
-  },
-
-  // 处理目标货币变化
-  handleToCurrencyChange(e) {
-    this.setData({
-      toCurrencyIndex: e.detail.value
     })
     this.updateConversion()
   },

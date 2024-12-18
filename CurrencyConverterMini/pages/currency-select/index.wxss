@@ -1,0 +1,93 @@
+/* 页面容器 */
+.page-container {
+  min-height: 100vh;
+  background: linear-gradient(145deg, #f6f8ff 0%, #ffffff 100%);
+  padding: 20rpx 30rpx;
+  padding-top: calc(env(safe-area-inset-top) + 88px + 20rpx);
+  box-sizing: border-box;
+}
+
+/* 自定义导航栏 */
+.custom-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  z-index: 100;
+  padding-top: calc(env(safe-area-inset-top) + 44px);
+}
+
+.nav-content {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 10px;
+  position: relative;
+}
+
+/* 货币列表 */
+.currency-list {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 32rpx;
+  box-shadow: 0 12rpx 40rpx rgba(0, 0, 0, 0.08),
+              0 2rpx 6rpx rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(230, 230, 230, 0.7);
+  overflow: hidden;
+}
+
+.currency-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32rpx 40rpx;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.currency-item:last-child {
+  border-bottom: none;
+}
+
+.currency-item:active {
+  background: #f8f9fd;
+}
+
+.currency-item.selected {
+  background: #f0f4ff;
+}
+
+.currency-label {
+  font-size: 32rpx;
+  color: #202124;
+  font-weight: 500;
+}
+
+/* 选中图标 */
+.icon-check {
+  color: #1a73e8;
+  font-size: 40rpx;
+}
+
+/* 图标字体 */
+@font-face {
+  font-family: "iconfont";
+  src: url('data:font/woff2;charset=utf-8;base64,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') format('woff2');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-check:before {
+  content: "\e645";
+}
+
+.icon-back:before {
+  content: "\e679";
+} 

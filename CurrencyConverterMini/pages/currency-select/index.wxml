@@ -1,0 +1,24 @@
+<view class="page-container">
+  <!-- Custom Navigation Bar -->
+  <view class="custom-nav">
+    <view class="nav-content">
+      <!-- <view class="back-button" bindtap="handleBack">
+        <text>←</text>
+      </view> -->
+      <text>{{type === 'from' ? '选择原始货币' : '选择目标货币'}}</text>
+    </view>
+  </view>
+
+  <view class="currency-list">
+    <view class="currency-item {{index === selectedIndex ? 'selected' : ''}}"
+          wx:for="{{currencies}}" 
+          wx:key="code"
+          data-index="{{index}}"
+          bindtap="handleCurrencySelect">
+      <view class="currency-info">
+        <text class="currency-label">{{item.label}}</text>
+      </view>
+      <text class="iconfont icon-check" wx:if="{{index === selectedIndex}}"></text>
+    </view>
+  </view>
+</view> 

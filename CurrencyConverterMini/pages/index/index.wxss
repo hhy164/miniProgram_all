@@ -1,26 +1,45 @@
-/* 页面容器 */
-.page-container {
-  min-height: 100vh;
-  background: linear-gradient(145deg, #f6f8ff 0%, #ffffff 100%);
-  padding: 40rpx 30rpx;
+/* 自定义导航栏 */
+.custom-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  z-index: 100;
+  padding-top: calc(env(safe-area-inset-top) + 44px); /* 状态栏高度 + 导航栏高度 */
 }
 
-/* 头部样式 */
-.header {
-  text-align: center;
-  margin-bottom: 60rpx;
-  animation: fadeIn 0.8s ease-out;
+.nav-content {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 10px;
 }
 
-.title {
+.nav-title {
   font-size: 56rpx;
   font-weight: 700;
   background: linear-gradient(135deg, #1a73e8 0%, #3f51b5 100%);
   -webkit-background-clip: text;
   color: transparent;
-  margin-bottom: 16rpx;
-  display: block;
   letter-spacing: -0.5px;
+}
+
+/* 页面容器 */
+.page-container {
+  min-height: 100vh;
+  background: linear-gradient(145deg, #f6f8ff 0%, #ffffff 100%);
+  padding: 20rpx 30rpx;
+  padding-top: calc(env(safe-area-inset-top) + 88px + 20rpx); /* 状态栏 + 导航栏 + 间距 */
+  box-sizing: border-box;
+}
+
+/* 头部样式 */
+.header {
+  text-align: center;
+  margin-bottom: 40rpx;
+  animation: fadeIn 0.8s ease-out;
 }
 
 .subtitle {
@@ -35,7 +54,7 @@
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   border-radius: 32rpx;
-  padding: 48rpx 40rpx;
+  padding: 40rpx;
   box-shadow: 0 12rpx 40rpx rgba(0, 0, 0, 0.08),
               0 2rpx 6rpx rgba(0, 0, 0, 0.03);
   margin-bottom: 40rpx;

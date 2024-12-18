@@ -1,5 +1,18 @@
 {
   "setting": {
     "urlCheck": true
+  },
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/current-select/current-select",
+          "pathName": "pages/currency-select/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
   }
 }
