@@ -5,7 +5,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "汇率转换器",
+    "navigationBarTitleText": "",
     "navigationBarTextStyle": "black"
   },
   "style": "v2",

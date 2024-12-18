@@ -1,29 +1,69 @@
-<view class="container">
+<view class="page-container">
+  <!-- Header Section -->
   <view class="header">
-    <text class="title">货币转换器</text>
-    <text class="subtitle">实时汇率转换</text>
+    <text class="title">汇率转换</text>
+    <text class="subtitle">实时汇率 · 精准换算</text>
   </view>
 
-  <currency-selector
-    currencies="{{currencies}}"
-    selected="{{fromCurrency}}"
-    label="选择源货币"
-    bind:change="onFromCurrencyChange"
-  />
+  <!-- Main Conversion Section -->
+  <view class="converter-card">
+    <!-- From Currency Section -->
+    <view class="currency-section">
+      <view class="currency-header">
+        <text>原始货币</text>
+        <picker bindchange="handleFromCurrencyChange" value="{{fromCurrencyIndex}}" range="{{currencies}}" range-key="label">
+          <view class="currency-picker">
+            <text>{{currencies[fromCurrencyIndex].label}}</text>
+            <text class="iconfont icon-arrow-down"></text>
+          </view>
+        </picker>
+      </view>
+      <view class="input-section">
+        <input type="digit" 
+               value="{{amount}}" 
+               bindinput="handleAmountInput"
+               placeholder="输入金额"
+               class="amount-input" />
+      </view>
+    </view>
 
-  <amount-input
-    symbol="{{currencies[fromCurrency].symbol}}"
-    bind:input="onAmountInput"
-  />
+    <!-- Exchange Button -->
+    <view class="exchange-button" bindtap="switchCurrencies">
+      <text class="iconfont icon-exchange"></text>
+    </view>
 
-  <result-list results="{{results}}" />
-
-  <view class="footer">
-    <text>最后更新：{{lastUpdate}}</text>
-    <button class="refresh-btn" bindtap="onRefresh">
-      刷新汇率
-    </button>
+    <!-- To Currency Section -->
+    <view class="currency-section">
+      <view class="currency-header">
+        <text>目标货币</text>
+        <picker bindchange="handleToCurrencyChange" value="{{toCurrencyIndex}}" range="{{currencies}}" range-key="label">
+          <view class="currency-picker">
+            <text>{{currencies[toCurrencyIndex].label}}</text>
+            <text class="iconfont icon-arrow-down"></text>
+          </view>
+        </picker>
+      </view>
+      <view class="result-section">
+        <text class="converted-amount">{{convertedAmount}}</text>
+        <text class="rate-info">当前汇率：1 {{currencies[fromCurrencyIndex].code}} = {{rate}} {{currencies[toCurrencyIndex].code}}</text>
+      </view>
+    </view>
   </view>
 
-  <loading wx:if="{{loading}}" />
-</view> 
+  <!-- Popular Currencies Section -->
+  <view class="popular-currencies">
+    <text class="section-title">常用汇率</text>
+    <view class="currency-grid">
+      <view class="currency-item" wx:for="{{popularConversions}}" wx:key="index">
+        <view class="currency-amount">{{item.amount}} {{item.from}}</view>
+        <text class="iconfont icon-arrow-right"></text>
+        <view class="currency-converted">{{item.convertedAmount}} {{item.to}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- Last Updated -->
+  <view class="last-updated">
+    <text>最后更新：{{lastUpdated}}</text>
+  </view>
+</view>
