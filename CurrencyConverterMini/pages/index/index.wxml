@@ -19,7 +19,6 @@
         <text>原始货币</text>
         <view class="currency-picker" bindtap="navigateToCurrencySelect" data-type="from">
           <text>{{currencies[fromCurrencyIndex].label}}</text>
-          <text class="iconfont icon-arrow-right"></text>
         </view>
       </view>
       <view class="input-section">
@@ -33,7 +32,7 @@
 
     <!-- Exchange Button -->
     <view class="exchange-button" bindtap="switchCurrencies">
-      <text class="iconfont icon-exchange"></text>
+      <image src="../images/exchange.svg" />
     </view>
 
     <!-- To Currency Section -->
@@ -42,7 +41,6 @@
         <text>目标货币</text>
         <view class="currency-picker" bindtap="navigateToCurrencySelect" data-type="to">
           <text>{{currencies[toCurrencyIndex].label}}</text>
-          <text class="iconfont icon-arrow-right"></text>
         </view>
       </view>
       <view class="result-section">
@@ -58,7 +56,6 @@
     <view class="currency-grid">
       <view class="currency-item" wx:for="{{popularConversions}}" wx:key="index">
         <view class="currency-amount">{{item.amount}} {{item.fromName}}</view>
-        <text class="iconfont icon-arrow-right"></text>
         <view class="currency-converted">{{item.convertedAmount}} {{item.toName}}</view>
       </view>
     </view>

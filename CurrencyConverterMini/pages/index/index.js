@@ -1,3 +1,4 @@
+import { formatDateTime } from '../utils/index.js'
 // 获取应用实例
 const app = getApp()
 
@@ -54,14 +55,7 @@ Page({
         const { rates, time_last_updated } = response.data
         this.setData({
           exchangeRates: rates,
-          lastUpdated: new Date(time_last_updated * 1000).toLocaleString('zh-CN', {
-            year: 'numeric',
-            month: '2-digit',
-            day: '2-digit',
-            hour: '2-digit',
-            minute: '2-digit',
-            hour12: false
-          })
+          lastUpdated: formatDateTime(time_last_updated)
         })
         this.updateConversion()
         this.updatePopularConversions()
