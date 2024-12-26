@@ -2,9 +2,6 @@
   <!-- Custom Navigation Bar -->
   <view class="custom-nav">
     <view class="nav-content">
-      <!-- <view class="back-button" bindtap="handleBack">
-        <text>←</text>
-      </view> -->
       <text>{{type === 'from' ? '选择原始货币' : '选择目标货币'}}</text>
     </view>
   </view>
