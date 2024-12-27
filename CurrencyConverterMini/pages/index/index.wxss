@@ -51,6 +51,7 @@
 
 /* 转换卡片样式 */
 .converter-card {
+  margin-top: 10rpx;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   border-radius: 32rpx;
