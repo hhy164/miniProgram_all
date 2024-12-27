@@ -4,7 +4,9 @@ Page({
   data: {
     type: '', // 'from' 或 'to'
     currencies,
-    selectedIndex: 0
+    filteredCurrencies: currencies,
+    selectedIndex: 0,
+    searchText: ''
   },
 
   onLoad(options) {
@@ -19,16 +21,45 @@ Page({
     wx.navigateBack()
   },
 
+  // 处理搜索输入
+  handleSearch(e) {
+    const searchText = e.detail.value.toLowerCase()
+    this.setData({ searchText })
+
+    if (!searchText) {
+      this.setData({ filteredCurrencies: this.data.currencies })
+      return
+    }
+
+    const filtered = this.data.currencies.filter(currency =>
+      currency.name.toLowerCase().includes(searchText) ||
+      currency.code.toLowerCase().includes(searchText)
+    )
+
+    this.setData({ filteredCurrencies: filtered })
+  },
+
+  // 清除搜索
+  clearSearch() {
+    this.setData({
+      searchText: '',
+      filteredCurrencies: this.data.currencies
+    })
+  },
+
   handleCurrencySelect(e) {
     const index = e.currentTarget.dataset.index
+    const originalIndex = this.data.currencies.findIndex(
+      c => c.code === this.data.filteredCurrencies[index].code
+    )
     const pages = getCurrentPages()
     const prevPage = pages[pages.length - 2]
 
     // 更新上一页数据
     if (this.data.type === 'from') {
-      prevPage.setData({ fromCurrencyIndex: index })
+      prevPage.setData({ fromCurrencyIndex: originalIndex })
     } else {
-      prevPage.setData({ toCurrencyIndex: index })
+      prevPage.setData({ toCurrencyIndex: originalIndex })
     }
 
     // 触发汇率更新

@@ -7,9 +7,25 @@
     </view>
   </view>
 
+  <!-- Search Box -->
+  <view class="search-container">
+    <view class="search-box">
+      <view class="search-icon">🔍</view>
+      <input 
+        class="search-input" 
+        type="text" 
+        placeholder="搜索货币名称或代码" 
+        value="{{searchText}}"
+        bindinput="handleSearch"
+        confirm-type="search"
+      />
+      <view class="clear-icon" bindtap="clearSearch" wx:if="{{searchText}}">✕</view>
+    </view>
+  </view>
+
   <view class="currency-list">
     <view class="currency-item {{index === selectedIndex ? 'selected' : ''}}"
-          wx:for="{{currencies}}" 
+          wx:for="{{filteredCurrencies}}" 
           wx:key="code"
           data-index="{{index}}"
           bindtap="handleCurrencySelect">
