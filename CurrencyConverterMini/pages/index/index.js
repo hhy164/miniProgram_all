@@ -1,21 +1,9 @@
-import { formatDateTime } from '../utils/index.js'
+import { formatDateTime } from '../../utils/index.js'
+import { currencies } from '../../utils/currency-config.js'
 
 Page({
   data: {
-    currencies: [
-      { code: 'CNY', label: '🇨🇳 人民币 (CNY)', name: '人民币' },
-      { code: 'USD', label: '🇺🇸 美元 (USD)', name: '美元' },
-      { code: 'EUR', label: '🇪🇺 欧元 (EUR)', name: '欧元' },
-      { code: 'GBP', label: '🇬🇧 英镑 (GBP)', name: '英镑' },
-      { code: 'JPY', label: '🇯🇵 日元 (JPY)', name: '日元' },
-      { code: 'HKD', label: '🇭🇰 港币 (HKD)', name: '港币' },
-      { code: 'KRW', label: '🇰🇷 韩元 (KRW)', name: '韩元' },
-      { code: 'AUD', label: '🇦🇺 澳元 (AUD)', name: '澳元' },
-      { code: 'CAD', label: '🇨🇦 加元 (CAD)', name: '加元' },
-      { code: 'SGD', label: '🇸🇬 新加坡元 (SGD)', name: '新加坡元' },
-      { code: 'MYR', label: '🇲🇾 马来西亚林吉特 (MYR)', name: '马来西亚林吉特' },
-      { code: 'THB', label: '🇹🇭 泰铢 (THB)', name: '泰铢' }
-    ],
+    currencies,
     fromCurrencyIndex: 0,
     toCurrencyIndex: 1,
     amount: '1',

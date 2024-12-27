@@ -32,7 +32,7 @@
 
     <!-- Exchange Button -->
     <view class="exchange-button" bindtap="switchCurrencies">
-      <image src="../images/exchange.svg" />
+      <image src="../../images/exchange.svg" />
     </view>
 
     <!-- To Currency Section -->
