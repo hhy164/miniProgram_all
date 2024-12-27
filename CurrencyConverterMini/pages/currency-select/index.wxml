@@ -2,7 +2,8 @@
   <!-- Custom Navigation Bar -->
   <view class="custom-nav">
     <view class="nav-content">
-      <text>{{type === 'from' ? '选择原始货币' : '选择目标货币'}}</text>
+      <image class="back-icon" src="../images/back.svg" bindtap="handleBack"></image>
+      <view class="nav-title">{{type === 'from' ? '选择原始货币' : '选择目标货币'}}</view>
     </view>
   </view>
 

@@ -2,6 +2,8 @@
 .page-container {
   min-height: 100vh;
   background: linear-gradient(145deg, #f6f8ff 0%, #ffffff 100%);
+  padding: 0 30rpx;
+  padding-top: 160rpx;
   padding: 20rpx 30rpx;
   padding-top: calc(env(safe-area-inset-top) + 88px + 20rpx);
   box-sizing: border-box;
@@ -15,16 +17,33 @@
   right: 0;
   background: #fff;
   z-index: 100;
+  padding-top: env(safe-area-inset-top) ;
   padding-top: calc(env(safe-area-inset-top) + 44px);
 }
 
 .nav-content {
-  height: 44px;
+  position: relative;
+  height: 88rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom: 10px;
-  position: relative;
+  padding: 0 32rpx;
+}
+
+/* 返回图标 */
+.back-icon {
+  position: absolute;
+  left: 28rpx;
+  width: 48rpx;
+  height: 48rpx;
+  padding: 20rpx;
+}
+
+/* 标题 */
+.nav-title {
+  font-size: 34rpx;
+  color: #000;
+  font-weight: 500;
 }
 
 /* 货币列表 */
