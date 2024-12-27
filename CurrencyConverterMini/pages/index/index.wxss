@@ -231,7 +231,7 @@
 /* 最后更新时间 */
 .last-updated {
   text-align: center;
-  margin-top: 48rpx;
+  margin-top: 30rpx;
   opacity: 0.8;
 }
 

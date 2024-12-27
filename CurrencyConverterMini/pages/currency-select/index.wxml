@@ -15,7 +15,6 @@
       <view class="currency-info">
         <text class="currency-label">{{item.label}}</text>
       </view>
-      <text class="iconfont icon-check" wx:if="{{index === selectedIndex}}"></text>
     </view>
   </view>
 </view> 
